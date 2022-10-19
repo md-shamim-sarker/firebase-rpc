@@ -1,13 +1,50 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import {FaFacebook, FaGoogle, FaKey} from 'react-icons/fa';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import {AuthContext} from '../../contexts/UserContext';
 
 const Login = () => {
+    const [message, setMessage] = useState("");
+    const navigate = useNavigate();
+    const {user, emailPasswordSignIn, googleSignIn, facebookSignIn} = useContext(AuthContext);
+
+    const googleSignInHandler = () => {
+        googleSignIn()
+            .then((result) => {
+            }).catch((error) => {
+                console.log(error);
+            });
+    };
+
+    const facebookSignInHandler = () => {
+        facebookSignIn()
+            .then((result) => {
+            }).catch((error) => {
+                console.log(error);
+            });
+    };
+
+    const emailPasswordSignInHandler = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        emailPasswordSignIn(email, password)
+            .then((userCredential) => {
+                // const user = userCredential.user;
+                navigate("/home");
+            })
+            .catch((error) => {
+                // console.log(error);
+                setMessage("This email or password not found");
+            });
+    };
+
     return (
         <div className='flex justify-center mt-10'>
             <div>
                 <h2 className='text-2xl font-bold'>Login Form</h2>
-                <form>
+                <form onSubmit={emailPasswordSignInHandler}>
                     <input type="email" name="email" id="email" />
                     <input type="password" name="password" id="password" />
                     <button className='flex items-center gap-x-2 hover:bg-slate-800 hover:text-slate-50'>
@@ -19,14 +56,21 @@ const Login = () => {
                     You don't have an account? Please, <Link className='text-blue-600 underline underline-offset-4' to={"/register"}>register</Link>
                 </div>
                 <div>
-                    <button className='flex items-center gap-x-2 hover:bg-slate-800 hover:text-slate-50'>
+                    <button onClick={googleSignInHandler} className='flex items-center gap-x-2 hover:bg-slate-800 hover:text-slate-50'>
                         <FaGoogle></FaGoogle>
                         <span>Sign in with Google</span>
                     </button>
-                    <button className='flex items-center gap-x-2 hover:bg-slate-800 hover:text-slate-50'>
+                    <button onClick={facebookSignInHandler} className='flex items-center gap-x-2 hover:bg-slate-800 hover:text-slate-50'>
                         <FaFacebook></FaFacebook>
                         <span>Sign in with Facebook</span>
                     </button>
+                </div>
+                <div className='text-red-600'>
+                    {
+                        user?.uid
+                            ? <span>{}</span>
+                            : <span>{message}</span>
+                    }
                 </div>
             </div>
         </div>
