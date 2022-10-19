@@ -1,26 +1,30 @@
 import React, {useContext, useState} from 'react';
 import {FaFacebook, FaGoogle, FaKey} from 'react-icons/fa';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {AuthContext} from '../../contexts/UserContext';
 
 const Login = () => {
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
     const {user, emailPasswordSignIn, googleSignIn, facebookSignIn} = useContext(AuthContext);
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const googleSignInHandler = () => {
         googleSignIn()
             .then((result) => {
+                navigate(from, {replace: true});
             }).catch((error) => {
-                console.log(error);
+                setMessage(error.message);
             });
     };
 
     const facebookSignInHandler = () => {
         facebookSignIn()
             .then((result) => {
+                navigate(from, {replace: true});
             }).catch((error) => {
-                console.log(error);
+                setMessage(error.message);
             });
     };
 
@@ -32,11 +36,10 @@ const Login = () => {
         emailPasswordSignIn(email, password)
             .then((userCredential) => {
                 // const user = userCredential.user;
-                navigate("/home");
+                navigate(from, {replace: true});
             })
             .catch((error) => {
-                // console.log(error);
-                setMessage("This email or password not found");
+                setMessage(error.message);
             });
     };
 

@@ -6,28 +6,34 @@ export const AuthContext = createContext();
 
 const UserContext = ({children}) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
 
     const googleSignIn = () => {
+        setLoading(true);
         return signInWithPopup(auth, googleProvider);
     };
 
     const facebookSignIn = () => {
+        setLoading(true);
         return signInWithPopup(auth, facebookProvider);
     };
 
     const emailPasswordRegister = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     };
 
     const emailPasswordSignIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     };
 
     const logOut = () => {
+        setLoading(true);
         return signOut(auth);
     };
 
@@ -36,6 +42,7 @@ const UserContext = ({children}) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             console.log(currentUser);
+            setLoading(false);
         });
         return () => {
             unsubscribe();
@@ -49,7 +56,8 @@ const UserContext = ({children}) => {
         emailPasswordSignIn,
         googleSignIn,
         facebookSignIn,
-        logOut
+        logOut,
+        loading
     };
 
     return (
