@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import {AuthContext} from '../../contexts/UserContext';
 
 const Navbar = () => {
@@ -16,23 +16,23 @@ const Navbar = () => {
     return (
         <div className='bg-gray-300 flex justify-between items-center px-5'>
             <div className='text-blue-700 text-xl font-extrabold'>
-                <Link to={"/home"}>Firebase FRC</Link>
+                <NavLink to={"/home"}>Firebase FRC</NavLink>
             </div>
             <div className='flex gap-x-3'>
-                <Link className='hover:text-blue-400' to={"/home"}>Home</Link>
-                <Link className='hover:text-blue-400' to={"/orders"}>Orders</Link>
-                <Link className='hover:text-blue-400' to={"/inventory"}>Inventory</Link>
+                <NavLink className={({isActive}) => isActive ? 'text-blue-700 underline underline-offset-4' : 'text-slate-700 hover:text-blue-700'} to={"/home"}>Home</NavLink>
+                <NavLink className={({isActive}) => isActive ? 'text-blue-700 underline underline-offset-4' : 'text-slate-700 hover:text-blue-700'} to={"/orders"}>Orders</NavLink>
+                <NavLink className={({isActive}) => isActive ? 'text-blue-700 underline underline-offset-4' : 'text-slate-700 hover:text-blue-700'} to={"/inventory"}>Inventory</NavLink>
             </div>
             <div className='flex items-center gap-x-3'>
                 <span>{user?.displayName || user?.email}</span>
                 {
                     user?.uid
-                        ? <Link className='hover:text-blue-400'>
+                        ? <NavLink className='hover:text-blue-400'>
                             <button onClick={logOutHandler}>Log Out</button>
-                        </Link>
-                        : <Link className='hover:text-blue-400' to={"/login"}>
+                        </NavLink>
+                        : <NavLink className='hover:text-blue-400' to={"/login"}>
                             <button>Login</button>
-                        </Link>
+                        </NavLink>
                 }
             </div>
         </div>
