@@ -1,52 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 const Home = () => {
     return (
-        <div>
-            <section
-                className="relative bg-[url(https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)] bg-cover bg-center bg-no-repeat"
-            >
-                <div
-                    className="absolute inset-0 bg-white/75 sm:bg-transparent sm:bg-gradient-to-r sm:from-white/95 sm:to-white/25"
-                ></div>
+        <div className='w-4/5 mx-auto'>
+            <h2 className='text-3xl font-bold my-3'>This is home page</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum excepturi et qui ratione ut. Ducimus molestiae voluptas aliquid officiis sint illo repudiandae reprehenderit vero totam sed quo, sequi quae nobis earum assumenda mollitia esse, nihil voluptatum doloremque magni voluptatem beatae blanditiis asperiores rem! Expedita suscipit totam accusamus perferendis unde molestiae atque harum rem delectus at. Magni beatae quidem aperiam in quos ipsum corrupti eius sequi nostrum dicta repudiandae ex modi, tempore distinctio ad id aliquam qui officia facilis sed enim. Pariatur beatae eligendi facilis ducimus mollitia impedit fugiat eveniet, incidunt numquam quasi modi odit corrupti exercitationem assumenda autem facere, laborum voluptate voluptates debitis veritatis cum inventore adipisci tenetur! Ipsam libero minima maiores quas? Illo mollitia dolor quis iusto eveniet quod modi quia, harum asperiores, incidunt, unde quam repellat laborum. Porro, deserunt eligendi veniam rem doloremque alias eos provident ut asperiores impedit, illo at laudantium tempora? Dolorem omnis dolores beatae eligendi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ut officia aperiam veritatis. Sed eius sit aspernatur tempore facere at doloremque qui possimus quis ullam! Quidem recusandae accusamus, corrupti molestiae perspiciatis ducimus, quibusdam minima excepturi tenetur est voluptates nam beatae. Consequuntur sed nihil, id veritatis, quisquam officiis voluptatibus sunt eaque culpa ea, consectetur a veniam alias quia consequatur. Hic veritatis repudiandae expedita dicta perspiciatis asperiores, qui earum quidem esse quae aliquam corrupti tempora quas architecto ex minus ratione? Nesciunt earum et natus ullam libero quas, amet, a id sequi labore porro eligendi explicabo nihil repudiandae, nam obcaecati eum corporis odit.</p>
 
-                <div
-                    className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8"
-                >
-                    <div className="max-w-xl text-center sm:text-left">
-                        <h1 className="text-3xl font-extrabold sm:text-5xl">
-                            Let us find your
-
-                            <strong className="block font-extrabold text-rose-700">
-                                Forever Home.
-                            </strong>
-                        </h1>
-
-                        <p className="mt-4 max-w-lg sm:text-xl sm:leading-relaxed">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo
-                            tenetur fuga ducimus numquam ea!
-                        </p>
-
-                        <div className="mt-8 flex flex-wrap gap-4 text-center">
-                            <Link
-                                to="#"
-                                className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
-                            >
-                                Get Started
-                            </Link>
-
-                            <Link
-                                to="#"
-                                className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
-                            >
-                                Learn More
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+            <p className='my-4'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex aperiam incidunt iste necessitatibus dicta minus. Soluta, facilis. Itaque voluptas debitis excepturi? Laborum iure, inventore voluptatum ab doloremque ut qui modi maxime? Eaque libero minima minus culpa consectetur obcaecati modi quisquam a, aut commodi excepturi id laborum, corrupti accusantium nam ullam debitis magni nisi vero. Incidunt deleniti quaerat, ipsa eveniet id, tempore officia harum at est, quo numquam laudantium fugit quos magni vitae qui iusto consectetur consequatur. Ea esse laborum ad quia iusto dolores accusantium ducimus nostrum sit mollitia ipsa ex doloribus repellat, ut quam quidem nemo animi similique sequi, quisquam odio illo eum. Nemo amet alias deserunt labore cum! Fugit nam error, vitae aliquam natus ipsam repellat esse, reprehenderit laborum dolore sit non delectus laboriosam tempore temporibus tempora ad corrupti dolor? Obcaecati delectus, dolorum nam similique vitae illum rem? Velit explicabo a corporis dicta quod pariatur perspiciatis aut, ipsam illo facere quibusdam voluptate voluptatibus temporibus architecto, nobis laborum. Similique quae, vel repellat cupiditate illum ad maiores ipsum maxime deserunt eligendi culpa aspernatur aperiam ex a sed officiis? Officia perspiciatis facilis iusto ipsam ipsa. Commodi at aperiam error vero quos assumenda! Modi ratione libero recusandae architecto, laborum tempore aspernatur sed nesciunt.</p>
         </div>
     );
 };
